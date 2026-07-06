@@ -1,7 +1,6 @@
 package testdata;
 
 public class TestData {
-
     public static String firstName = "Dosym";
     public static String lastName = "Súleev";
     public static String studentFullName = firstName + " " + lastName;
@@ -21,16 +20,4 @@ public class TestData {
     public static String stateOption = "Haryana";
     public static String cityOption = "Karnal";
     public static String stateAndCityValue = stateOption + " " + cityOption;
-
-    public static String studentNameKey = "Student Name";
-    public static String studentEmailKey = "Student Email";
-    public static String studentGenderKey = "Gender";
-    public static String userMobileNumberKey = "Mobile";
-    public static String dateOfBirthKey = "Date of Birth";
-    public static String SubjectsKey = "Subjects";
-    public static String hobbiesKey = "Hobbies";
-    public static String pictureKey = "Picture";
-    public static String addressKey = "Address";
-    public static String stateAndCityKey = "State and City";
-
 }

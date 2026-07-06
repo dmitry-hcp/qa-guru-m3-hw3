@@ -28,16 +28,16 @@ public class StudentRegistrationFormTests extends TestBase {
         $("#react-select-4-input").setValue(cityOption).pressEnter();
         $("#submit").click();
 
-        $$("tbody tr").findBy(text(studentNameKey)).shouldHave(text(studentFullName));
-        $$("tbody tr").findBy(text(studentEmailKey)).shouldHave(text(validUserEmail));
-        $$("tbody tr").findBy(text(studentGenderKey)).shouldHave(text(userGender));
-        $$("tbody tr").findBy(text(userMobileNumberKey)).shouldHave(text(validUserMobileNumber));
-        $$("tbody tr").findBy(text(dateOfBirthKey)).shouldHave(text(fullDateOfBirth));
-        $$("tbody tr").findBy(text(SubjectsKey)).shouldHave(text(subjectValue));
-        $$("tbody tr").findBy(text(hobbiesKey)).shouldHave(text(hobbyValue));
-        $$("tbody tr").findBy(text(pictureKey)).shouldHave(text(uploadPictureName));
-        $$("tbody tr").findBy(text(addressKey)).shouldHave(matchText(userAddress));
-        $$("tbody tr").findBy(text(stateAndCityKey)).shouldHave(text(stateAndCityValue));
+        $$("tbody tr").findBy(text("Student Name")).shouldHave(text(studentFullName));
+        $$("tbody tr").findBy(text("Student Email")).shouldHave(text(validUserEmail));
+        $$("tbody tr").findBy(text("Gender")).shouldHave(text(userGender));
+        $$("tbody tr").findBy(text("Mobile")).shouldHave(text(validUserMobileNumber));
+        $$("tbody tr").findBy(text("Date of Birth")).shouldHave(text(fullDateOfBirth));
+        $$("tbody tr").findBy(text("Subjects")).shouldHave(text(subjectValue));
+        $$("tbody tr").findBy(text("Hobbies")).shouldHave(text(hobbyValue));
+        $$("tbody tr").findBy(text("Picture")).shouldHave(text(uploadPictureName));
+        $$("tbody tr").findBy(text("Address")).shouldHave(matchText(userAddress));
+        $$("tbody tr").findBy(text("State and City")).shouldHave(text(stateAndCityValue));
     }
 
     @Test
