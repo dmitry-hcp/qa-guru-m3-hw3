@@ -14,12 +14,18 @@ public class TextBoxPage {
 
     public TextBoxPage openPage(String path) {
         open(path);
+
+        return this;
+    }
+
+    public TextBoxPage removeDemoQaObstructiveElements() {
         executeJavaScript("""
                 document.getElementById('fixedban')?.remove();
                 document.querySelector('footer')?.remove();
                 """);
+
         return this;
-    }
+    };
 
     public TextBoxPage typeUserName(String userName) {
         userNameInput.setValue(userName);

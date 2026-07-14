@@ -12,6 +12,7 @@ public class StudentRegistrationFormTests extends TestBase {
 
         studentRegistrationFormPage
                 .openPage(AUTOMATION_PRACTICE_FORM)
+                .removeDemoQaObstructiveElements()
                 .typeUserFirstName(firstName)
                 .typeUserLastName(lastName)
                 .typeUserEmail(validUserEmail)
@@ -23,7 +24,8 @@ public class StudentRegistrationFormTests extends TestBase {
                 .uploadPicture(pictureFileName)
                 .typeCurrentAddress(userAddress)
                 .setStateAndCity(stateOption, cityOption)
-                .submitForm()
+                .submitForm();
+        tableComponent
                 .resultsContainerShouldAppear()
                 .resultsContainerTitleShouldHave("Thanks for submitting the form")
                 .resultsContainerTableRowShouldHave("Student Name", studentFullName)
@@ -42,11 +44,13 @@ public class StudentRegistrationFormTests extends TestBase {
     void shouldSubmitWithValidRequiredFields() {
         studentRegistrationFormPage
                 .openPage(AUTOMATION_PRACTICE_FORM)
+                .removeDemoQaObstructiveElements()
                 .typeUserFirstName(firstName)
                 .typeUserLastName(lastName)
                 .setGender(userGender)
                 .typeUserMobileNumber(validUserMobileNumber)
-                .submitForm()
+                .submitForm();
+        tableComponent
                 .resultsContainerShouldAppear()
                 .resultsContainerTitleShouldHave("Thanks for submitting the form")
                 .resultsContainerTableRowShouldHave("Student Name", studentFullName)
@@ -65,10 +69,12 @@ public class StudentRegistrationFormTests extends TestBase {
     void shouldNotSubmitWithoutFirstName() {
         studentRegistrationFormPage
                 .openPage(AUTOMATION_PRACTICE_FORM)
+                .removeDemoQaObstructiveElements()
                 .typeUserLastName(lastName)
                 .setGender(userGender)
                 .typeUserMobileNumber(validUserMobileNumber)
-                .submitForm()
+                .submitForm();
+        tableComponent
                 .resultsContainerShouldNotExist();
     }
 
@@ -76,10 +82,12 @@ public class StudentRegistrationFormTests extends TestBase {
     void shouldNotSubmitWithoutLastName() {
         studentRegistrationFormPage
                 .openPage(AUTOMATION_PRACTICE_FORM)
+                .removeDemoQaObstructiveElements()
                 .typeUserFirstName(firstName)
                 .setGender(userGender)
                 .typeUserMobileNumber(validUserMobileNumber)
-                .submitForm()
+                .submitForm();
+        tableComponent
                 .resultsContainerShouldNotExist();
     }
 
@@ -87,10 +95,12 @@ public class StudentRegistrationFormTests extends TestBase {
     void shouldNotSubmitWithoutGender() {
         studentRegistrationFormPage
                 .openPage(AUTOMATION_PRACTICE_FORM)
+                .removeDemoQaObstructiveElements()
                 .typeUserFirstName(firstName)
                 .typeUserLastName(lastName)
                 .typeUserMobileNumber(validUserMobileNumber)
-                .submitForm()
+                .submitForm();
+        tableComponent
                 .resultsContainerShouldNotExist();
     }
 
@@ -98,10 +108,12 @@ public class StudentRegistrationFormTests extends TestBase {
     void shouldNotSubmitWithoutMobileNumber() {
         studentRegistrationFormPage
                 .openPage(AUTOMATION_PRACTICE_FORM)
+                .removeDemoQaObstructiveElements()
                 .typeUserFirstName(firstName)
                 .typeUserLastName(lastName)
                 .setGender(userGender)
-                .submitForm()
+                .submitForm();
+        tableComponent
                 .resultsContainerShouldNotExist();
     }
 
@@ -109,11 +121,13 @@ public class StudentRegistrationFormTests extends TestBase {
     void shouldNotSubmitWithWrongMobileNumber() {
         studentRegistrationFormPage
                 .openPage(AUTOMATION_PRACTICE_FORM)
+                .removeDemoQaObstructiveElements()
                 .typeUserFirstName(firstName)
                 .typeUserLastName(lastName)
                 .setGender(userGender)
                 .typeUserMobileNumber(invalidUserMobileNumber)
-                .submitForm()
+                .submitForm();
+        tableComponent
                 .resultsContainerShouldNotExist();
     }
 }

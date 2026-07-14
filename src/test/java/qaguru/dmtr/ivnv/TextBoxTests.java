@@ -11,6 +11,7 @@ public class TextBoxTests extends TestBase {
     void shouldSubmitSimpleFormSWithValidData() {
         textBoxPage
                 .openPage(TEXT_BOX)
+                .removeDemoQaObstructiveElements()
                 .typeUserName(studentFullName)
                 .submitForm()
                 .fieldShouldHaveValue("name", "Name:" + studentFullName)
@@ -23,6 +24,7 @@ public class TextBoxTests extends TestBase {
     void shouldNotSubmitSimpleFormSWithWrongEmail() {
         textBoxPage
                 .openPage(TEXT_BOX)
+                .removeDemoQaObstructiveElements()
                 .typeUserName(studentFullName)
                 .submitForm()
                 .typeUserName(studentFullName)

@@ -25,12 +25,14 @@ public class StudentRegistrationFormPage {
     private final SelenideElement citySelect = $("#city");
     private final SelenideElement stateCityContainer = $("#stateCity-wrapper");
     private final SelenideElement submitButton = ($("#submit"));
-    private final SelenideElement resultsContainer = ($(".modal-dialog"));
-    private final SelenideElement resultsContainerTitle = ($("#example-modal-sizes-title-lg"));
-    private final SelenideElement resultsContainerTable = ($(".table-responsive"));
 
     public StudentRegistrationFormPage openPage(String path) {
         open(path);
+
+        return this;
+    };
+
+    public StudentRegistrationFormPage removeDemoQaObstructiveElements() {
         executeJavaScript("""
                 document.getElementById('fixedban')?.remove();
                 document.querySelector('footer')?.remove();
@@ -123,42 +125,6 @@ public class StudentRegistrationFormPage {
 
     public StudentRegistrationFormPage submitForm() {
         submitButton.click();
-
-        return this;
-    };
-
-    public StudentRegistrationFormPage resultsContainerShouldAppear() {
-        resultsContainer.should(appear);
-
-        return this;
-    };
-
-    public StudentRegistrationFormPage resultsContainerShouldNotExist() {
-        resultsContainer.shouldNot(exist);
-
-        return this;
-    };
-
-    public StudentRegistrationFormPage resultsContainerTitleShouldHave(String textValue) {
-        resultsContainerTitle.shouldHave(text(textValue));
-
-        return this;
-    };
-
-    public StudentRegistrationFormPage resultsContainerTableRowShouldHave(String key, String value) {
-        resultsContainerTable.$(byText(key)).parent().shouldHave(text(value));
-
-        return this;
-    };
-
-    public StudentRegistrationFormPage resultsContainerTableKeyShouldBeEmpty(String key) {
-        resultsContainerTable.$(byText(key)).parent().$$("td").get(1).shouldBe(empty);
-
-        return this;
-    };
-
-    public StudentRegistrationFormPage dateOfBirthShouldNotBeEmpty(String key) {
-        resultsContainerTable.$(byText(key)).parent().$$("td").get(1).shouldNotBe(empty);
 
         return this;
     };

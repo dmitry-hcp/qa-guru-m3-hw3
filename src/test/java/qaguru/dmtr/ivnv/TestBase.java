@@ -5,12 +5,14 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import qaguru.dmtr.ivnv.pages.TextBoxPage;
 import qaguru.dmtr.ivnv.pages.StudentRegistrationFormPage;
+import qaguru.dmtr.ivnv.pages.components.TableComponent;
 
 import static com.codeborne.selenide.Selenide.*;
 
 public class TestBase {
     TextBoxPage textBoxPage =  new TextBoxPage();
     StudentRegistrationFormPage studentRegistrationFormPage =  new StudentRegistrationFormPage();
+    TableComponent tableComponent = new TableComponent();
 
     @BeforeAll
     public static void setup() {
